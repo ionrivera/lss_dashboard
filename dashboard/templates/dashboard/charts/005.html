@@ -1,0 +1,71 @@
+<!-- https://codepen.io/ionrivera/pen/LYPLEOK?editors=0110 -->
+<script>
+  var data = {
+      labels: ["FY-19", "FY-20", "Jan-19", "Feb-19", "Mar-19","Apr-19", "May-19"],
+      datasets: [{
+      label: 'Cost Variance',
+      type: 'line',
+      lineTension: 0,
+      yAxisID: 'A',
+      borderColor: 'greenyellow',
+      backgroundColor: 'greenyellow',
+      fill: false,
+      data: [-21.7,-14.8,-13.3,-10.6,-20.9,-14.8,-14.9]},
+      {
+      label: 'Target -15%',
+      type: 'line',
+      lineTension: 0,
+      yAxisID: 'A',
+      borderColor: 'greenyellow',
+      backgroundColor: 'white',
+      borderDash: [10,5],
+      borderWidth: 1,
+      pointStyle: 'line',
+      fill: false,
+      data: [-15,-15,-15,-15,-15,-15,-15]},
+      {
+      label: '# of Engagements',
+      type: 'bar',
+      yAxisID: 'B',
+      backgroundColor: "dodgerblue",
+      data: [82,13,3,3,5,11,2],
+      }]
+    };
+  var options = {
+      legend: {
+      display: true,
+      position: 'bottom'
+      },
+      title: {
+        display: true,
+        text: 'Cost Variance'},
+      scales: {
+    		xAxes: [{ stacked: true }],
+    		yAxes: [{
+        		id: "A",
+            position: "left",
+            ticks: {
+                stepSize: 5,
+                min: -25,
+                max: 0,
+                callback: function(value){return value+ "%"}
+                },
+						scaleLabel: { display: true },},
+            {
+        		id: 'B',
+        		type: 'linear',
+        		position: 'right',
+        		ticks: {
+          	max: 20,
+          	min: 0
+        		}
+        }]
+  		},
+    }
+
+  new Chart(document.getElementById("charts-005"), {
+    type: 'bar',
+   data: data,
+  options: options
+});
+</script>

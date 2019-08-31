@@ -1,0 +1,53 @@
+{% extends 'adminlte/base.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}LSS Dashboard{% endblock title %}</title>
+    {% block meta %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+     <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    {% endblock meta %}
+    {% block nav_header %}
+        {% include 'dashboard/lib/_main_header.html' %}
+    {% endblock nav_header %}
+    {% block nav_sidebar %}
+        {% include 'dashboard/lib/_main_sidebar.html' %}
+    {% endblock nav_sidebar %}
+</head>
+<body>
+    {% block content_wrapper %}
+        <div class="content-wrapper">
+        {% block content_header %}
+            <section class="content-header">
+            <h1>Dashboard<small>PH GD DelEx</small></h1>
+            <ol class="breadcrumb">
+                <li><a href="{% url 'dashboard-index' %}"><i class="fa fa-dashboard"></i>Home</a></li>
+                <li class="active">Dashboard</li>
+            </ol>
+        </section>
+        {% endblock content_header %}
+        {% block content_outer %}
+            <section class="content">
+            {% block content_block_wrap %}
+            {% block content %}{% endblock %}
+            {% endblock content_block_wrap %}
+            </section>
+        {% endblock content_outer %}
+        </div>
+    {% endblock content_wrapper %}
+    {% block nav_footer %}
+        {% include 'dashboard/lib/_main_footer.html' %}
+    {% endblock nav_footer %}
+</body>
+</html>

@@ -1,0 +1,98 @@
+{% load static %}
+<!-- Left side column. contains the sidebar -->
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        {% block form %}{% endblock %}
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        {% block nav_links_ul %}
+        <ul class="sidebar-menu">
+            {% block nav_links_outer %}
+            <li class="header">{% block nav_heading %}MAIN NAVIGATION{% endblock %}</li>
+
+            {% block nav_links %}
+                <li>
+                    <a href="#"><i class="fa fa-laptop"></i> <span>DASHBOARD</span></a>
+                </li>
+                <li class="treeview">
+                    <a href="#"><i class="fa fa-pie-chart"></i><span>Engagement Health</span>
+                    <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+                    <ul class="treeview-menu">
+                        <li><a href="#"><i class="fa fa-pie-chart"></i>EHI Trends</a></li>
+                        <li><a href="#"><i class="fa fa-pie-chart"></i>Traditional|Digital Portfolio</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#"><i class="fa fa-line-chart"></i><span>Financials</span>
+                    <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+                    <ul class="treeview-menu">
+                        <li><a href="#"><i class="fa fa-pie-chart"></i>Cost Variance</a></li>
+                        <li><a href="#"><i class="fa fa-pie-chart"></i>EM Variance</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#"><i class="fa fa-bar-chart"></i><span>Satisfaction Ratings</span>
+                    <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+                    <ul class="treeview-menu">
+                        <li><a href="#"><i class="fa fa-bar-chart"></i>ASAT / aNPS</a></li>
+                        <li><a href="#"><i class="fa fa-line-chart"></i>Score per Category</a></li>
+                        <li><a href="#"><i class="fa fa-bar-chart"></i>CSAT</a></li>
+                        <li><a href="#"><i class="fa fa-line-chart"></i>SOBR</a></li>
+                    </ul>
+                </li>
+                 <li class="treeview">
+                    <a href="#"><i class="fa fa-line-chart"></i><span>SLAs</span>
+                    <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+                    <ul class="treeview-menu">
+                        <li><a href="#"><i class="fa fa-bar-chart"></i>Critical SLA Compliance</a></li>
+                        <li><a href="#"><i class="fa fa-bar-chart"></i>SLA Compliance</a></li>
+                        <li><a href="#"><i class="fa fa-line-chart"></i>Account level Penalties</a></li>
+                        <li><a href="#"><i class="fa fa-line-chart"></i>Availability - APPS</a></li>
+                        <li><a href="#"><i class="fa fa-line-chart"></i>Availability - ITO</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#"><i class="fa fa-line-chart"></i><span>Rtop</span></a>
+                </li>
+                <li class="treeview">
+                    <a href="#"><i class="fa fa-bar-chart"></i><span>Incident Management</span>
+                    <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+                    <ul class="treeview-menu">
+                        <li><a href="#"><i class="fa fa-bar-chart"></i>P1 Closed Incidents</a></li>
+                        <li><a href="#"><i class="fa fa-line-chart"></i>Open Incidents</a></li>
+                        <li><a href="#"><i class="fa fa-bar-chart"></i>Missed P1 P2 Incidents - APPS</a></li>
+                        <li><a href="#"><i class="fa fa-bar-chart"></i>Missed P1 P2 Incidents - ITO</a></li>
+                        <li><a href="#"><i class="fa fa-bar-chart"></i>Ticket Reduction</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#"><i class="fa fa-line-chart"></i><span>Change Management</span>
+                    <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+                    <ul class="treeview-menu">
+                        <li><a href="#"><i class="fa fa-line-chart"></i>Patch Compliance</a></li>
+                        <li><a href="#"><i class="fa fa-line-chart"></i>Failed Changes</a></li>
+                        <li><a href="#"><i class="fa fa-bar-chart"></i>Emergency Changes</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#"><i class="fa fa-bar-chart"></i><span>Agile and DevOps KPI</span>
+                    <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+                    <ul class="treeview-menu">
+                        <li><a href="#"><i class="fa fa-line-chart"></i>Story points accepted</a></li>
+                        <li><a href="#"><i class="fa fa-line-chart"></i>Average Lead Time</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#"><i class="fa fa-bar-chart"></i><span>Deliverable Timeliness</span></a>
+                </li>
+                <li class="treeview">
+                    <a href="#"><i class="fa fa-bar-chart"></i><span>Best in Class</span></a>
+                </li>
+            {% endblock nav_links %}
+            {% endblock nav_links_outer %}
+        </ul>
+        {% endblock nav_links_ul %}
+    </section>
+    <!-- /.sidebar -->
+</aside>

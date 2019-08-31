@@ -1,0 +1,62 @@
+<!-- https://jsfiddle.net/ionrivera/mcw54vo3/43/ Ver.1-->
+<!-- https://jsfiddle.net/ionrivera/mcw54vo3/53/ Ver.2-->
+<script>
+new Chart(document.getElementById("charts-003"), {
+    type: 'bar',
+    data: {
+      labels: ["FY-19", "FY-20", "Jan-19", "Feb-19", "Mar-19","Apr-19", "May-19"],
+      datasets: [{
+      type: 'bar',
+      label: 'Digital',
+      data: [71,84,75,73,70,89,79],
+      backgroundColor: 'deepskyblue',
+      fill: false
+    }, {
+      type: 'bar',
+      label: 'Traditional',
+      backgroundColor: "greenyellow",
+      data: [57,87,65,58,59,87,86],
+    }, {
+      type: 'bar',
+      label: 'Industry & BPS',
+      backgroundColor: "silver",
+      data: [15,37,22,27,25,36,37],
+          }, {
+      type: 'bar',
+      label: 'No Info',
+      backgroundColor: "slateblue",
+      data: [1,1,2,1,1,1,1]
+        }]
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: 'Traditional - Digital Portfolio'},
+      scales: {
+    		xAxes: [{ stacked: true }],
+    		yAxes: [{ stacked: true }]
+  		},
+    	tooltips : {
+    		callbacks : {
+        label : function(tooltipItem, data) {
+            return data.datasets[tooltipItem.datasetIndex].label + ': ' + tooltipItem.yLabel;
+        },
+        afterLabel: function(tooltipItem, data){
+  var total = 0;
+  for (i = 0; i < data.datasets.length; i++) {
+    total += data.datasets[i].data[tooltipItem.datasetIndex];
+  }
+  var percentage = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index] / total * 100;
+  var percentage = percentage.toFixed(2); // Trim decimal part
+  return percentage + '%';
+},
+ }
+}
+
+
+
+
+    }
+});
+</script>

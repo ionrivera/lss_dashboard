@@ -1,0 +1,57 @@
+<script>
+      var data = {
+      labels: ["FY19 Q3", "FY19 Q1", "FY20 Q3"],
+      datasets: [{
+      label: 'NPS',
+      type: 'line',
+      lineTension: 0,
+      yAxisID: 'A',
+      borderColor: 'greenyellow',
+      backgroundColor: 'greenyellow',
+      fill: false,
+      data: [.631,.5,.384]},
+      {
+      label: '# of Respondents',
+      type: 'bar',
+      yAxisID: 'B',
+      backgroundColor: "dodgerblue",
+      data: [19,6,13],
+      }]
+    };
+  var options = {
+      legend: {
+      display: true,
+      position: 'bottom'
+      },
+      title: {
+        display: true,
+        text: 'ASAT / aNPS'},
+      scales: {
+    		xAxes: [{ stacked: true }],
+    		yAxes: [{
+        		id: "A",
+            position: "left",
+            ticks: {
+                stepSize: .2,
+                min: 0,
+                max: 0.8,
+                },
+						scaleLabel: { display: true },},
+            {
+        		id: 'B',
+        		type: 'linear',
+        		position: 'right',
+        		ticks: {
+          	max: 20,
+          	min: 0
+        		}
+        }]
+  		},
+    }
+
+  new Chart(document.getElementById("charts-007"), {
+    type: 'bar',
+   data: data,
+  options: options
+});
+</script>

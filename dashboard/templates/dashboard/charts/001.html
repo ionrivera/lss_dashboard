@@ -1,0 +1,54 @@
+<!-- https://jsfiddle.net/ionrivera/mcw54vo3/18/ ver.1-->
+<!-- https://jsfiddle.net/ionrivera/mcw54vo3/27/ ver.2 -->
+<script>
+new Chart(document.getElementById("charts-001"), {
+    type: 'bar',
+    data: {
+      labels: ["FY-19", "FY-20", "Jan-19", "Feb-19", "Mar-19","Apr-19", "May-19"],
+      datasets: [{
+      type: 'bar',
+      label: 'G',
+      data: [92,66,121,122,114,164,164],
+      backgroundColor: 'yellowgreen',
+      fill: false
+    }, {
+      type: 'bar',
+      label: 'Y',
+      backgroundColor: "gold",
+      data: [12,9,16,13,16,24,18],
+    }, {
+      type: 'bar',
+      label: 'R',
+      backgroundColor: "orangered",
+      data: [3,4,4,3,3,5,7]
+        }]
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: 'EHI Trends'},
+      scales: {
+    		xAxes: [{ stacked: true }],
+    		yAxes: [{ stacked: true }]
+  		},
+  	    <!-- Tooltip starts here -->
+    	tooltips : {
+    		callbacks : {
+                label : function(tooltipItem, data) {
+                return data.datasets[tooltipItem.datasetIndex].label + ': ' + tooltipItem.yLabel;},
+                afterLabel : function(tooltipItem, data){
+                var total = 0;
+                for (i = 0; i < data.datasets.length; i++) {
+                total += data.datasets[i].data[tooltipItem.datasetIndex];
+                }
+                var percentage = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index] / total * 100;
+                var percentage = percentage.toFixed(2);
+                return percentage + "%";
+                },
+             }
+         }
+        <!-- Tooltip ends here -->
+    }
+});
+</script>

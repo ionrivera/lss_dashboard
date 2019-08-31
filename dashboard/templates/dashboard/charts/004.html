@@ -1,0 +1,45 @@
+<!-- https://jsfiddle.net/ionrivera/mcw54vo3/65/ Ver.1 -->
+<script>
+new Chart(document.getElementById("charts-004"), {
+    type: 'doughnut',
+    data: {
+      labels: ["Digital", "Traditional", "Industry & BPS", "No Info"],
+      datasets: [
+        {
+          label: "Latest Trends",
+          backgroundColor: ["deepskyblue", "greenyellow","silver","slateblue"],
+          data: [79,86,37,1]
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      legend: {
+      position: 'bottom',
+      },
+      title: {
+        display: true,
+        text: 'Latest Data'
+      },
+      tooltips: {
+      callbacks: {
+              title: function(tooltipItem, data) {
+          return data['labels'][tooltipItem[0]['index']];
+        },
+        label: function(tooltipItem, data) {
+          return data['datasets'][0]['data'][tooltipItem['index']];
+        },
+        afterLabel: function(tooltipItem, data) {
+          var dataset = data.datasets[tooltipItem.datasetIndex];
+          var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+            return previousValue + currentValue;
+          });
+          var currentValue = dataset.data[tooltipItem.index];
+          var precentage = Math.floor(((currentValue/total) * 100)+0.5);
+          return precentage + "%";
+        }
+      }
+    },
+    }
+});
+</script>
