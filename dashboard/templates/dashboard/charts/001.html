@@ -1,9 +1,6 @@
-<!-- https://jsfiddle.net/ionrivera/mcw54vo3/18/ ver.1-->
-<!-- https://jsfiddle.net/ionrivera/mcw54vo3/27/ ver.2 -->
+<!-- https://codepen.io/ionrivera/pen/gOYGYBR?editors=0010 ver.1-->
 <script>
-new Chart(document.getElementById("charts-001"), {
-    type: 'bar',
-    data: {
+var data01 = {
       labels: ["FY-19", "FY-20", "Jan-19", "Feb-19", "Mar-19","Apr-19", "May-19"],
       datasets: [{
       type: 'bar',
@@ -22,8 +19,9 @@ new Chart(document.getElementById("charts-001"), {
       backgroundColor: "orangered",
       data: [3,4,4,3,3,5,7]
         }]
-    },
-    options: {
+    };
+
+var options01 = {
       legend: { display: false },
       title: {
         display: true,
@@ -32,7 +30,6 @@ new Chart(document.getElementById("charts-001"), {
     		xAxes: [{ stacked: true }],
     		yAxes: [{ stacked: true }]
   		},
-  	    <!-- Tooltip starts here -->
     	tooltips : {
     		callbacks : {
                 label : function(tooltipItem, data) {
@@ -48,7 +45,57 @@ new Chart(document.getElementById("charts-001"), {
                 },
              }
          }
-        <!-- Tooltip ends here -->
     }
+
+var data02 = {
+      labels: ["G:", "Y:", "R:"],
+      datasets: [
+        {
+          label: "Latest Trends",
+          backgroundColor: ["yellowgreen", "gold","orangered"],
+          data: [164,18,7]
+        }
+      ]
+    };
+ var options02 = {
+      responsive: true,
+      legend: {
+      position: 'bottom',
+      },
+      title: {
+        display: true,
+        text: 'Latest Data'
+      },
+      tooltips: {
+      callbacks: {
+              title: function(tooltipItem, data) {
+          return data['labels'][tooltipItem[0]['index']];
+        },
+        label: function(tooltipItem, data) {
+          return data['datasets'][0]['data'][tooltipItem['index']];
+        },
+        afterLabel: function(tooltipItem, data) {
+          var dataset = data.datasets[tooltipItem.datasetIndex];
+          var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+            return previousValue + currentValue;
+          });
+          var currentValue = dataset.data[tooltipItem.index];
+          var precentage = Math.floor(((currentValue/total) * 100)+0.5);
+          return precentage + "%";
+        }
+      }
+    },
+    }
+
+new Chart(document.getElementById("charts-001"), {
+    type: 'bar',
+    data: data01,
+    options: options01
+})
+
+new Chart(document.getElementById("charts-002"), {
+    type: 'doughnut',
+    data: data02,
+    options: options02
 });
 </script>
