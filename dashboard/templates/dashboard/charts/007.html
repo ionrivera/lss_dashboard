@@ -1,5 +1,5 @@
 <script>
-      var data = {
+      var data07 = {
       labels: ["FY19 Q3", "FY19 Q1", "FY20 Q3"],
       datasets: [{
       label: 'NPS',
@@ -17,8 +17,8 @@
       backgroundColor: "dodgerblue",
       data: [19,6,13],
       }]
-    };
-  var options = {
+    }
+  var options07 = {
       legend: {
       display: true,
       position: 'bottom'
@@ -48,10 +48,49 @@
         }]
   		},
     }
+      var data08 = {
+      labels: ["JAS 2018", "OND 2018", "JFM 2019"],
+      datasets: [{
+      label: 'SOBR Score',
+      type: 'line',
+      lineTension: 0,
+      borderColor: 'greenyellow',
+      backgroundColor: 'greenyellow',
+      fill: false,
+      data: [5.36, 5.57,5.54]},
+      ]
+    }
+
+  var options08 = {
+      legend: {
+      display: true,
+      position: 'bottom'
+      },
+      title: {
+        display: true,
+        text: 'SOBR'},
+      scales: {
+    		xAxes: [{ stacked: true }],
+    		yAxes: [{
+            position: "left",
+            ticks: {
+                stepSize: 1,
+                min: 0,
+                max: 7,
+                },
+			},
+          ]
+  		},
+    }
 
   new Chart(document.getElementById("charts-007"), {
     type: 'bar',
-   data: data,
-  options: options
+   data: data07,
+  options: options07
+  })
+  new Chart(document.getElementById("charts-008"), {
+  type: 'line',
+  data: data08,
+  options: options08
 });
 </script>
