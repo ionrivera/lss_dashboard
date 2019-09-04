@@ -5,7 +5,8 @@
       label: 'FY19-Q3',
       type: 'line',
       lineTension: 0,
-      borderColor: 'rgba(255, 25, 120, 0.1)',
+      borderWidth: 1,
+      borderColor: 'rgba(255, 25, 120, 0.4)',
       backgroundColor: 'rgba(255, 25, 120, 0.1)',
       fill: false,
       data: [9.5, 8.84,8.95,8.05,8.35,8.74,8.37,7.89,7.72,7.88,7.33]},
@@ -13,7 +14,8 @@
       label: 'FY19-Q4',
       type: 'line',
       lineTension: 0,
-      borderColor: 'rgba(100, 255, 220, 0.5)',
+      borderWidth: 1,
+      borderColor: 'rgba(100, 255, 220, 0.8)',
       backgroundColor: 'rgba(100, 255, 220, 0.2)',
       fill: false,
       data: [7.67, 8.33,8.17,7.50,7.0,7.50,6.50,7.33,7.50,6.83,6.20]},
@@ -21,7 +23,8 @@
       label: 'FY20-Q1',
       type: 'line',
       lineTension: 0,
-      borderColor: 'rgba(120, 255, 20, 0.5)',
+      borderWidth: 1,
+      borderColor: 'rgba(120, 255, 20, 0.8)',
       backgroundColor: 'rgba(120, 255, 20, 0.1)',
       fill: true,
       data: [9.15, 8.23,8.85,8.42,8.25,8.31,8.67,7.54,7.85,7.67,7.82]
@@ -32,13 +35,24 @@
   var options09 = {
       legend: {
       display: true,
-      position: 'bottom'
+      position: 'bottom',
+      labels: {
+              boxWidth: 20,
+              fontSize: 10,
+          }
       },
       title: {
         display: true,
         text: 'Scores per Category'},
       scales: {
-    		xAxes: [{ stacked: true }],
+    		xAxes: [{
+          stacked: true,
+          ticks: {
+          autoSkip: false,
+          maxRotation: 90,
+          minRotation: 90
+        }
+        }],
     		yAxes: [{
             position: "left",
             ticks: {

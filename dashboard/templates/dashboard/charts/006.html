@@ -34,6 +34,10 @@
       legend: {
         display: true,
         position: 'bottom',
+        labels: {
+              boxWidth: 20,
+              fontSize: 10,
+          }
        },
       title: {
         display: true,
@@ -51,9 +55,12 @@
              },
 						scaleLabel: { display: true },},
             {
-        		id: 'B',
-        		type: 'linear',
-        		position: 'right',
+        	id: 'B',
+        	type: 'linear',
+        	position: 'right',
+        	gridLines: {
+            display:false
+            },
         		ticks: {
           	max: 20,
           	min: 0

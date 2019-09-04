@@ -15,6 +15,7 @@
       label: '# of Respondents',
       type: 'bar',
       yAxisID: 'B',
+      borderColor: "dodgerblue",
       backgroundColor: "dodgerblue",
       data: [19,6,13],
       }]
@@ -22,7 +23,11 @@
   var options07 = {
       legend: {
       display: true,
-      position: 'bottom'
+      position: 'bottom',
+      labels: {
+              boxWidth: 20,
+              fontSize: 10,
+          }
       },
       title: {
         display: true,
@@ -32,6 +37,9 @@
     		yAxes: [{
         		id: "A",
             position: "left",
+            gridLines: {
+               display:false
+            },
             ticks: {
                 stepSize: .2,
                 min: 0,
@@ -65,7 +73,11 @@
   var options08 = {
       legend: {
       display: true,
-      position: 'bottom'
+      position: 'bottom',
+      labels: {
+              boxWidth: 20,
+              fontSize: 10,
+          }
       },
       title: {
         display: true,

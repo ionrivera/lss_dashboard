@@ -1,0 +1,97 @@
+<!-- https://codepen.io/ionrivera/pen/rNBwmEO?editors=1010 -->
+<script>
+
+var data10 = {
+      labels: ["FY-19", "FY-20", "Jan-19", "Feb-19", "Mar-19","Apr-19", "May-19"],
+      datasets: [{
+      label: 'CSAT Score',
+      type: 'line',
+      lineTension: 0,
+      yAxisID: 'A',
+      borderWidth: 2,
+      borderColor: 'greenyellow',
+      backgroundColor: 'greenyellow',
+      fill: false,
+      data: [4.66,4.44,5,4.67,4.63,4.26,4.62]},
+      {
+      label: 'PH Target 4.7',
+      type: 'line',
+      lineTension: 0,
+      yAxisID: 'A',
+      borderColor: 'yellowgreen',
+      backgroundColor: 'white',
+      borderDash: [10,5],
+      borderWidth: 1,
+      pointStyle: 'line',
+      fill: false,
+      data: [4.7,4.7,4.7,4.7,4.7,4.7,4.7]},
+      {
+      label: 'Account Target 4.5',
+      type: 'line',
+      lineTension: 0,
+      yAxisID: 'A',
+      borderColor: 'green',
+      backgroundColor: 'white',
+      borderDash: [10,5],
+      borderWidth: 1,
+      pointStyle: 'line',
+      fill: false,
+      data: [4.5,4.5,4.5,4.5,4.5,4.5,4.5]},
+      {
+      label: '# of Respondents',
+      type: 'bar',
+      yAxisID: 'B',
+      backgroundColor: "dodgerblue",
+      data: [47,11,2,2,2,7,4],
+      }]
+    };
+  var options10 = {
+      legend: {
+        display: true,
+        position: 'bottom',
+        labels: {
+              boxWidth: 20,
+              fontSize: 10,
+          }
+       },
+        tooltips: {
+            mode: 'index',
+            intersect: false,
+        },
+      title: {
+        display: true,
+        text: 'CSAT'},
+      scales: {
+    		xAxes: [{ stacked: true }],
+    		yAxes: [{
+        		id: "A",
+            position: "left",
+            gridLines: {
+               display:false
+            },
+            ticks: {
+                stepSize: .2,
+                min: 4,
+                max: 5,
+                callback: function(value){return value}
+             },
+						scaleLabel: { display: true },},
+            {
+        		id: 'B',
+        		type: 'linear',
+        		position: 'right',
+        		ticks: {
+          	stepSize: 2,
+            max: 12,
+          	min: 0
+        		}
+        }]
+  		},
+    }
+
+  new Chart(document.getElementById("charts-010"), {
+    type: 'bar',
+   data: data10,
+  options: options10
+});
+</script>
