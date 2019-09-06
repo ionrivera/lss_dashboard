@@ -1,0 +1,58 @@
+<!-- https://codepen.io/ionrivera/pen/rNBwmEO -->
+<script>
+     Chart.defaults.global.tooltips.callbacks.label = function(tooltipItem, data) {
+ var dataset = data.datasets[tooltipItem.datasetIndex];
+ var datasetLabel = dataset.label || '';
+ return datasetLabel + ": $" + dataset.data[tooltipItem.index].toLocaleString();};
+
+var data13 = {
+      labels: ["","FY19","", "Jan-19", "Feb-19", "Mar-19", "Apr-19"],
+      datasets: [{
+      label: 'SOBR Score',
+      type: 'line',
+      lineTension: 0,
+      borderColor: 'greenyellow',
+      backgroundColor: 'greenyellow',
+      fill: false,
+      data: [,599754.07, ,1170070.34,796918.05,778186.19,530672.20]},
+      ]
+    }
+
+  var options13 = {
+      legend: {
+      display: true,
+      position: 'bottom',
+      labels: {
+              boxWidth: 20,
+              fontSize: 10,
+          }
+      },
+
+      title: {
+        display: true,
+        text: 'Acount Level Penalties Paid (Top 10)'},
+      scales: {
+    		xAxes: [{ stacked: true }],
+    		yAxes: [{
+            position: "left",
+            ticks: {
+            beginAtZero:true,
+                   callback:
+                      function(value) {
+                        return  "$ " + value.toLocaleString();
+                      },
+                stepSize: 200000,
+                min: 200000,
+                max: 1400000,
+                },
+			    },
+          ]
+  		},
+    }
+
+  new Chart(document.getElementById("charts-013"), {
+  type: 'line',
+  data: data13,
+  options: options13
+})
+</script>

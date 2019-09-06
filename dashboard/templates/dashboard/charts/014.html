@@ -1,0 +1,57 @@
+<script>
+ Chart.defaults.global.tooltips.callbacks.label = function(tooltipItem, data) {
+ var dataset = data.datasets[tooltipItem.datasetIndex];
+ var datasetLabel = dataset.label || '';
+ return datasetLabel + ": " + dataset.data[tooltipItem.index].toLocaleString() + "%";};
+
+var data14 = {
+      labels: ["","FY19","FY20","", "Jan-19", "Feb-19", "Mar-19", "Apr-19","May-19"],
+      datasets: [{
+      label: 'Availability',
+      type: 'line',
+      lineTension: 0,
+      borderColor: 'greenyellow',
+      backgroundColor: 'greenyellow',
+      fill: false,
+      data: [, 99.5,99.7,,99.45,99.86,99.72,99.9,99.56]},
+      ]
+    }
+
+  var options14 = {
+      legend: {
+      display: true,
+      position: 'bottom',
+      labels: {
+              boxWidth: 20,
+              fontSize: 10,
+          }
+      },
+
+      title: {
+        display: true,
+        text: 'Availability - Apps'},
+      scales: {
+    		xAxes: [{ stacked: true }],
+    		yAxes: [{
+            position: "left",
+            ticks: {
+            beginAtZero:true,
+                   callback:
+                      function(value) {
+                        return  value.toLocaleString() + "%";
+                      },
+                stepSize: .1,
+                min: 99.2,
+                max: 100.0,
+                },
+			    },
+          ]
+  		},
+    }
+
+  new Chart(document.getElementById("charts-014"), {
+  type: 'line',
+  data: data14,
+  options: options14
+})
+</script>

@@ -1,0 +1,66 @@
+<script>
+          var data16 = {
+      labels: ["FY-19", "FY-20",, "Jan-19", "Feb-19", "Mar-19","Apr-19", "May-19"],
+      datasets: [{
+      label: 'MTTR (in hrs)',
+      type: 'line',
+      lineTension: 0,
+      yAxisID: 'A',
+      borderColor: 'greenyellow',
+      backgroundColor: 'greenyellow',
+      fill: false,
+      data: [6.6,1.8,{},7.4,0,5.1,.9,2.7]},
+      {
+      label: 'RTOP',
+      type: 'bar',
+      yAxisID: 'B',
+      backgroundColor: "dodgerblue",
+      data: [3,5,{},2,0,4,2,7],
+      }]
+    };
+  var options16 = {
+      legend: {
+        display: true,
+        position: 'bottom',
+        labels: {
+              boxWidth: 20,
+              fontSize: 10,
+          }
+       },
+      title: {
+        display: true,
+        text: 'P1 RtOP'},
+      scales: {
+    		xAxes: [{ stacked: true }],
+    		yAxes: [{
+        		id: "A",
+            position: "left",
+            gridLines: {
+            display:false
+            },
+            ticks: {
+                stepSize: 1,
+                min: 0,
+                max: 8,
+                callback: function(value){return value}
+             },
+						scaleLabel: { display: true },},
+            {
+        	id: 'B',
+        	type: 'linear',
+        	position: 'right',
+        		ticks: {
+            stepSize: 1,
+          	max: 8.0,
+          	min: 0.0
+        		}
+        }]
+  		},
+    }
+
+  new Chart(document.getElementById("charts-016"), {
+    type: 'bar',
+   data: data16,
+  options: options16
+});
+</script>

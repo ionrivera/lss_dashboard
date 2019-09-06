@@ -1,78 +1,78 @@
-<!-- https://codepen.io/ionrivera/pen/LYPLEOK?editors=0110 -->
 <script>
-  var data05 = {
+      var data11 = {
       labels: ["FY-19", "FY-20",, "Jan-19", "Feb-19", "Mar-19","Apr-19", "May-19"],
       datasets: [{
-      label: 'Cost Variance',
+      label: '% Critical SLA Compliance',
       type: 'line',
       lineTension: 0,
       yAxisID: 'A',
       borderColor: 'greenyellow',
       backgroundColor: 'greenyellow',
       fill: false,
-      data: [-21.7,-14.8,{},-13.3,-10.6,-20.9,-14.8,-14.9]},
+      data: [95.4,95.1,{},97.1,97,96.2,96.5,93.6]},
       {
-      label: 'Target -15%',
+      label: 'Target 95%',
       type: 'line',
       lineTension: 0,
       yAxisID: 'A',
       borderColor: 'greenyellow',
       backgroundColor: 'white',
-      borderDash: [10,5],
-      borderWidth: 1,
+      borderDash: [5,5],
+      borderWidth: 1.5,
       pointStyle: 'line',
       fill: false,
-      data: [-15,-15,-15,-15,-15,-15,-15,-15]},
+      data: [95,95,95,95,95,95,95,95]},
       {
-      label: '# of Engagements',
+      label: '# of Critical SLA',
       type: 'bar',
       yAxisID: 'B',
       backgroundColor: "dodgerblue",
-      data: [82,13,{},3,3,5,11,2],
+      data: [163,233,{},228,230,224,231,234],
       }]
     };
-  var options05 = {
+  var options11 = {
       legend: {
-      display: true,
-      position: 'bottom',
-      labels: {
+        display: true,
+        position: 'bottom',
+        labels: {
               boxWidth: 20,
               fontSize: 10,
           }
-      },
+       },
       title: {
         display: true,
-        text: 'Cost Variance'},
+        text: 'Critical SLA Compliance w/ Penalties'},
       scales: {
     		xAxes: [{ stacked: true }],
     		yAxes: [{
         		id: "A",
             position: "left",
+            gridLines: {
+            display:false
+            },
             ticks: {
-                stepSize: 5,
-                min: -25,
-                max: 0,
+                stepSize: 10,
+                min: 90,
+                max: 100,
                 callback: function(value){return value+ "%"}
-                },
+             },
 						scaleLabel: { display: true },},
             {
-        		id: 'B',
-        		type: 'linear',
-        		position: 'right',
-        		gridLines: {
-                    display:false
-                },
+        	id: 'B',
+        	type: 'linear',
+        	position: 'right',
         		ticks: {
-          	max: 20,
-          	min: 0
+                stepSize: 50,
+          	    max: 250,
+          	    min: 0
         		}
         }]
   		},
     }
 
-  new Chart(document.getElementById("charts-005"), {
+  new Chart(document.getElementById("charts-011"), {
     type: 'bar',
-   data: data05,
-  options: options05
+   data: data11,
+  options: options11
 });
 </script>

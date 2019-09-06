@@ -1,0 +1,65 @@
+<script>
+     Chart.defaults.global.tooltips.callbacks.label = function(tooltipItem, data) {
+ var dataset = data.datasets[tooltipItem.datasetIndex];
+ var datasetLabel = dataset.label || '';
+ return datasetLabel + ": " + dataset.data[tooltipItem.index].toLocaleString() + "%";};
+
+var data15 = {
+      labels: ["","FY19","FY20","", "Jan-19", "Feb-19", "Mar-19", "Apr-19","May-19"],
+      datasets: [{
+      label: 'Availability',
+      type: 'line',
+      lineTension: 0,
+      borderColor: 'greenyellow',
+      backgroundColor: 'greenyellow',
+      fill: false,
+      data: [{},96.4,96.8,{},97.4,96.7,96.8,96.1,97.6]},
+      {
+      label: 'Coverage',
+      type: 'line',
+      lineTension: 0,
+      borderColor: 'limegreen',
+      backgroundColor: 'limegreen',
+      fill: false,
+      data: [{},48.6,41.0,{},44.2,43.4,39.9,42.3,39.8]},
+      ]
+    }
+
+  var options15 = {
+      legend: {
+      display: true,
+      position: 'bottom',
+      labels: {
+              boxWidth: 20,
+              fontSize: 10,
+          }
+      },
+
+      title: {
+        display: true,
+        text: 'Availability - ITO'},
+      scales: {
+    		xAxes: [{ stacked: true }],
+    		yAxes: [{
+            position: "left",
+            ticks: {
+            beginAtZero:true,
+                   callback:
+                      function(value) {
+                        return  value.toLocaleString() + "%";
+                      },
+                stepSize: 10,
+                min: 0,
+                max: 100,
+                },
+			    },
+          ]
+  		},
+    }
+
+  new Chart(document.getElementById("charts-015"), {
+  type: 'line',
+  data: data15,
+  options: options15
+})
+</script>
